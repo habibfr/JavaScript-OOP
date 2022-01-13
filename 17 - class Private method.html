@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>17 - class Private method.html</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		class Person{
+
+			say(name){
+				if(name){
+					this.#sayWithName(name);
+				}else{
+					this.#sayWithoutName();
+				}
+			}
+
+			#sayWithoutName(){
+				console.info("Hello");
+			}
+
+			#sayWithName(name){
+				console.info(`Hello ${name}`);
+			}
+		}
+
+
+		const eko = new Person();
+		eko.say("Habib"); //with name
+		eko.say(); // without name
+		// console.log(eko);
+
+
+	</script>
+
+</body>
+</html>

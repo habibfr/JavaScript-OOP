@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>16 - Private class Field.html</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		// private ( # )
+
+		class Counter{
+			#counter = 0;
+
+			increment(){
+				this.#counter++;
+			}
+
+			decrement(){
+				this.#counter--;
+			}
+
+			get(){
+				return this.#counter;
+			}
+		}
+
+		const counter = new Counter();
+		counter.increment(); 
+		counter.increment();
+		counter.increment();
+		counter.increment();
+		counter.increment();
+
+		console.info(counter.get());
+
+		counter.decrement();
+
+		console.info(counter);
+
+	</script>
+
+</body>
+</html>

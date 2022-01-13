@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Super method</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		class Shape{
+			paint(){
+				console.info("Paint shape");
+			}
+
+			paint2(){
+				console.info("Pain shape v2")
+			}
+		}
+
+		class Circle extends Shape{
+			paint(){
+				super.paint(); // paint shape diambil dari class super Shape
+				super.paint2();
+				console.info("Paint circle"); // milik sendiri
+			}
+		}
+
+
+		const shape = new Shape();
+		shape.paint();
+
+		const circle = new Circle();
+		circle.paint();
+
+	</script>
+
+</body>
+</html>
