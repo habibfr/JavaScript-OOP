@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Constructor Inheritance</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		function Employee(firstName){
+			this.firstName = firstName;
+
+			this.sayHello = function(name){
+				console.info(`Hello ${name}, My name is ${this.firstName}`);
+			}
+		}
+
+		function Manager(firstName, lastName){
+			this.lastName = lastName;
+			Employee.call(this, firstName); // mengcopy contructor lain dengan call, this
+		}
+
+		const habib = new Manager("Habib", "Ganteng");
+
+		console.info(habib)
+		habib.sayHello("Budi");
+
+
+	</script>
+
+</body>
+</html>

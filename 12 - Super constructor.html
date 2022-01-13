@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		class Empolyee{
+			constructor(firstName){
+				this.firstName = firstName;
+			}
+
+
+			sayHello(name){
+				console.info(`Hello ${name}, my name Employee ${this.firstName}`)
+			}
+		}
+
+		class Manager extends Empolyee{
+			constructor(firstName, lastName){
+				super(firstName);
+				this.lastName = lastName;
+			}
+
+			sayHello(name){
+				console.info(`Hello ${name}, my name Manager ${this.firstName} ${this.lastName} `)
+			}
+		}
+
+
+		const budi = new Empolyee("Budi");
+		budi.sayHello("Habib");
+
+		const eko = new Manager("eko", "anjaz");
+		eko.sayHello("Habib");
+
+		console.info(budi);
+		console.info(eko);
+	</script>
+
+</body>
+</html>

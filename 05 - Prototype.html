@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prototype</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		function Person(firstName, lastName){
+			this.firstName = firstName;
+			this.lastName = lastName;
+
+			this.sayHello = function(name){
+				console.info(`Hello ${name}, My name is ${this.firstName}`)
+			}
+		}
+
+		Person.prototype.sayBye = function(){
+			console.info("Good Bye");
+		}
+
+		Person.prototype.run = function(){
+			console.info(`${this.firstName} is running`)
+		}
+
+
+		const eko = new Person("Eko", "Khannedy");
+		// Prorotype diakses dengan mencari dari atas sampai bawah
+		// eko.sayBye = function(){
+		// 	console.info("Sampai Jumpa");
+		// }
+
+		const habib = new Person("Habib", "Ganteng");
+
+		console.info(eko);
+		console.info(habib);
+
+		eko.sayBye();
+		eko.run();
+
+	</script>
+
+</body>
+</html>

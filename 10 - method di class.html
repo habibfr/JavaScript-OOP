@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>class method</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		class Person{
+			constructor(name){
+				// kode logic apapun
+
+				this.name = name;
+				console.info(`membuat person ${name}`);
+			}
+
+			sayHello(name){
+				console.info(`Hello ${name}, my name is ${this.name}`)
+			}
+		}
+
+		const eko = new Person("Eko");
+		eko.sayHello("Habib"); // method in class
+		console.info(eko.name); // property constructor
+
+
+
+		const budi = new Person("budi");
+		budi.sayHello("EKo");
+		console.info(budi);
+
+	</script>
+
+</body>
+</html>
