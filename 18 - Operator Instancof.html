@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>18 - Operator Instancof.html</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		class Employee{
+
+		}
+
+		class Manager extends Employee{
+
+		}
+
+		const eko = new Employee();
+		const budi = new Manager();
+
+		console.info(typeof eko); // object
+		console.info(typeof budi);  // object
+
+		console.info(budi instanceof Manager); // true
+		console.info(budi instanceof Employee); // false
+
+
+		console.info(eko instanceof Manager); //false
+		console.info(eko instanceof Employee); // true
+
+
+	</script>
+
+</body>
+</html>

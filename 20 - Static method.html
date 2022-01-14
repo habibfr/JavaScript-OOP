@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>20 - Static method.html</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		class MathUtil{
+
+			static sum(...numbers) {
+				let total = 0;
+				for(const number of numbers){  //var number = 0; number<=numbers.length; number++
+					total += number;
+				}
+				return total;
+			}
+		}
+
+		// const coba = new MathUtil();
+		// console.info(coba.sum(30));
+
+		// const coba1 = new sum(1,2,3,4,5);
+		// console.info(coba1);
+
+		// MathUtil.sum(2,2,4,)
+
+		const coba2 = MathUtil.sum(1,2,3,4);
+		console.info(coba2);
+
+
+
+
+	</script>
+
+</body>
+</html>
