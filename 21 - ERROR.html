@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>21 - Error</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		class MathUtil{
+
+			static sum(...numbers) {
+
+				if(numbers.length === 0){
+					throw new Error("Parameter numbers harus lebih dari 0"); //ERROR (throw ERROR)
+				}
+
+				let total = 0;
+				for(const number of numbers){  //var number = 0; number<=numbers.length; number++
+					total += number;
+				}
+				return total;
+			}
+		}
+
+		console.info(MathUtil.sum()); // Pogram berhenti disini, karena error
+
+
+		const coba2 = MathUtil.sum(1,2,3,4);
+		console.info(coba2);
+
+
+
+
+	</script>
+
+</body>
+</html>

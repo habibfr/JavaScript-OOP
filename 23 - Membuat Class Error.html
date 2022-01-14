@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>23 - membuat class error</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		// membuat class error
+		class ValidationError extends Error{
+			constructor(message, field){
+				super(message);
+				this.field = field;
+			}
+		}
+		
+		class MathUtil{
+
+			static sum(...numbers) {
+				if(numbers.length === 0){
+					throw new ValidationError("Parameter numbers harus lebih dari 0", "numbers");
+				}
+
+				let total = 0;
+				for(const number of numbers){  //var number = 0; number<=numbers.length; number++
+					total += number;
+				}
+				return total;
+			}
+		}
+
+// Error handling
+
+		try{ // selalu mencoba dieksekusi
+			console.info(MathUtil.sum());
+			console.info("Eko");
+		}catch(Error){ // dieksekusi jika program try error
+			if(Error instanceof ValidationError){
+				console.error(`Terjadi error di field ${Error.field} dengan error ${Error.message}`)
+			}else{
+				console.info(`Error : ${Error.message}`);
+			}
+
+		} finally{ // selalu dieksekusi apapun hasil try catch
+			console.info("program selesai");
+		}
+
+		const coba2 = MathUtil.sum(1,2,3,4);
+		console.info(coba2);
+	</script>
+
+</body>
+</html>
