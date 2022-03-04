@@ -5,7 +5,7 @@
     <title>Promise</title>
     <script>
       function getProductsUrl(keyword) {
-        return `https://www.blibli.com/backend/search/prjoducts?searchTerm=${keyword}`;
+        return `https://www.blibli.com/backend/search/products?searchTerm=${keyword}`;
       }
 
       function getProducts(keyword) {
@@ -57,29 +57,60 @@
       };
 
       function buttonClick() {
-        const promise = getProducts(document.getElementById("keyword").value);
+        // 1 promise
 
-        promise
-          .then((value) => {
-            return value.data.products;
+        // const promise = getProducts(document.getElementById("keyword").value);
+        // promise
+        //   .then((value) => {
+        //     return value.data.products;
+        //   })
+        //   .then((product) => {
+        //     return product.map((pro) => {
+        //       displayProduct(pro);
+        //       showID(pro.id);
+        //     });
+        //   })
+        //   .catch((Error) => {
+        //     alert(Error.message);
+        //   })
+        //   .finally(() => {
+        //     console.log("Selesai execute data");
+        //   });
+
+        // all promise
+
+        const promise = getProducts(document.getElementById("keyword").value);
+        const promise2 = getProducts(document.getElementById("keyword2").value);
+        const promise3 = getProducts(document.getElementById("keyword3").value);
+
+        Promise.all([promise, promise2, promise3])
+          .then((values) => {
+            // console.log(values);
+            return values.map((value) => value.data.products);
           })
-          .then((product) => {
-            return product.map((pro) => {
-              displayProduct(pro);
-              showID(pro.id);
+          .then((values) => {
+            // console.log(values);
+            values.map((products) => {
+              // console.log(products);
+              products.map((product) => {
+                showID(product.id);
+                displayProduct(product);
+              });
             });
           })
           .catch((Error) => {
             alert(Error.message);
           })
           .finally(() => {
-            console.log("Selesai execute data");
+            console.log("Done");
           });
       }
     </script>
   </head>
   <body>
     <input type="text" id="keyword" />
+    <input type="text" id="keyword2" />
+    <input type="text" id="keyword3" />
     <button onclick="buttonClick()">Search Products</button>
     <ul id="products"></ul>
   </body>
