@@ -9,18 +9,29 @@
       }
 
       function getProducts(keyword) {
-        return new Promise(function (resolve, reject) {
-          const ajax = new XMLHttpRequest();
-          ajax.onload = function () {
-            if (ajax.status === 200) {
-              const data = JSON.parse(ajax.responseText);
-              resolve(data);
-            } else {
-              reject(Error(ajax.statusText));
-            }
-          };
-          ajax.open("GET", getProductsUrl(keyword));
-          ajax.send();
+
+        // AjAX
+        // return new Promise(function (resolve, reject) {
+        //   const ajax = new XMLHttpRequest();
+        //   ajax.onload = function () {
+        //     if (ajax.status === 200) {
+        //       const data = JSON.parse(ajax.responseText);
+        //       resolve(data);
+        //     } else {
+        //       reject(Error("Error"));
+        //     }
+        //   };
+        //   ajax.open("GET", getProductsUrl(keyword));
+        //   ajax.send();
+        // });
+
+        // FETCH 
+        const url = getProductsUrl(keyword);
+
+        return fetch(url, {
+          method: "GET",
+        }).then((res) => {
+          return res.json();
         });
       }
 
@@ -43,14 +54,19 @@
 
       const buttonClick = async () => {
         // Code Async Await Here!
-        const value = await getProducts(
-          document.getElementById("keyword").value
-        );
-        clearProducts();
-        value.data.products.map((product) => {
-          console.log(product);
-          displayProduct(product);
-        });
+        try {
+          const value = await getProducts(
+            document.getElementById("keyword").value
+          );
+          clearProducts();
+          value.data.products.map((product) => {
+            displayProduct(product);
+          });
+        } catch (Error) {
+          alert(Error.message);
+        } finally {
+          console.log("Done");
+        }
       };
     </script>
   </head>
