@@ -5,7 +5,7 @@
     <title>Promise</title>
     <script>
       function getProductsUrl(keyword) {
-        return `https://www.blibli.com/backend/search/products?searchTerm=${keyword}`;
+        return `https://www.blibli.com/backend/search/prjoducts?searchTerm=${keyword}`;
       }
 
       function getProducts(keyword) {
@@ -71,6 +71,9 @@
           })
           .catch((Error) => {
             alert(Error.message);
+          })
+          .finally(() => {
+            console.log("Selesai execute data");
           });
       }
     </script>
